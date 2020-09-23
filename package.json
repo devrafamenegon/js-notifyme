@@ -1,0 +1,28 @@
+{
+  "name": "quadro-de-avisos-pw2",
+  "version": "1.0.0",
+  "description": "Quadro de avisos com node, express e body-parser",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/C0bal/quadro-de-avisos-pw2.git"
+  },
+  "author": "Rafael Henrique Menegon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/C0bal/quadro-de-avisos-pw2/issues"
+  },
+  "homepage": "https://github.com/C0bal/quadro-de-avisos-pw2#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
