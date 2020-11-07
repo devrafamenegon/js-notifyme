@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser') 
 
 //importando as rotas do aviso 
-const routerAvisos = require('./components/avisos/AvisosController')
+const routerAvisos = require('./components/avisos/AvisosController');
 
 //inicializar o express 
 const app = express() 
