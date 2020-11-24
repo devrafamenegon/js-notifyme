@@ -1,12 +1,14 @@
 <!-- incluir o head -->
-<%- include('./partials/head.ejs') %>
+<%- include('./partials/head') %>
 
 <body>
-  <div class="container">
+  <!-- Menu -->
+  <%- include('./partials/navbar') %>
 
+  <div class="container">
     <br><br>
     <a href="#"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a>
-    <br><br>
+    <br>
 
     <% if (typeof msg !== 'undefined') { %>
     <% if (msg.tipo ==='sucesso') { %>
@@ -38,7 +40,7 @@
     <br>
 
     <div class="card shadow">
-      <div class="card-header bg-purple text-white pl-5 p-4">
+      <div class="card-header bg-dark text-white pl-5 p-4">
         <h2><i class="far fa-calendar-plus"></i> Novo Aviso</h2>
       </div>
       <!--card-header-->
@@ -71,7 +73,7 @@
   <!--container-->
 
   <!-- incluir os scripts do bootstrap -->
-  <%- include('./partials/scripts_import') %>
+  <%- include ('./partials/scripts_import') %>
 </body>
 
 </html>

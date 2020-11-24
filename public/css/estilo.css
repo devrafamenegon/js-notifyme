@@ -1,3 +1,9 @@
 .bg-purple {
-  background: black;
+    background: rgb(103,58,183);
+    background: linear-gradient(90deg, rgba(103,58,183,1) 28%, rgba(124,77,255,1) 71%);
+}
+
+.gradient-purple{
+  background: rgb(103,58,183);
+  background: linear-gradient(90deg, rgba(103,58,183,1) 28%, rgba(124,77,255,1) 71%);
 }
