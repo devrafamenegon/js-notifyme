@@ -1,0 +1,62 @@
+<!-- incluir o head -->
+<%- include('./partials/head') %>
+
+<body>
+  <!-- Menu -->
+  <%- include('./partials/navbar') %>
+
+  <div class="container">
+    <br><br>
+    <a href="#"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a>
+    <br><br>
+    <div class="card shadow">
+      <div class="card-header bg-dark text-white pl-5 p-4">
+        <h2 class="float-left"><i class="fas fa-clipboard-list"></i> Avisos Cadastrados</h2>
+        <a href="/avisos/novo" class="btn btn-lg btn-outline-light float-right"><i class="fas fa-plus-circle"></i> Novo Aviso</a>
+      </div>
+      <!--card-header-->
+      <div class="card-body p-5">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Título</th>
+              <th scope="col">Data</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <% if (avisos.length < 1) { %>
+              <tr>
+                <td colspan="4" class="text-center">Nenhum aviso cadastrado!</td>
+              </tr>
+            <% } %>
+
+            <% avisos.forEach(aviso => { %>
+              <tr>
+                <th scope="row"> <%= aviso.ID_avisos %> </th>
+                <td><%= aviso.titulo %></td>
+                <td><%= moment(aviso.data).format("DD/MM/YYYY") %></td>
+                <td>
+                  <button class="btn btn-secondary">Excluir</button>
+                  <button class="btn btn-info">Alterar</button>
+                </td>
+              </tr>
+            <% }) %>
+
+          </tbody>
+        </table>
+        
+      </div>
+      <!--card-body-->
+    </div>
+    <!--card-->
+  </div>
+  <!--container-->
+
+  <!-- incluir os scripts do bootstrap -->
+  <%- include ('./partials/scripts_import') %>
+</body>
+
+</html>
