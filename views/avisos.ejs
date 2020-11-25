@@ -12,7 +12,8 @@
     <div class="card shadow">
       <div class="card-header bg-dark text-white pl-5 p-4">
         <h2 class="float-left"><i class="fas fa-clipboard-list"></i> Avisos Cadastrados</h2>
-        <a href="/avisos/novo" class="btn btn-lg btn-outline-light float-right"><i class="fas fa-plus-circle"></i> Novo Aviso</a>
+        <a href="/avisos/novo" class="btn btn-lg btn-outline-light float-right"><i class="fas fa-plus-circle"></i> Novo
+          Aviso</a>
       </div>
       <!--card-header-->
       <div class="card-body p-5">
@@ -28,26 +29,26 @@
           <tbody>
 
             <% if (avisos.length < 1) { %>
-              <tr>
-                <td colspan="4" class="text-center">Nenhum aviso cadastrado!</td>
-              </tr>
+            <tr>
+              <td colspan="4" class="text-center">Nenhum aviso cadastrado!</td>
+            </tr>
             <% } %>
 
             <% avisos.forEach(aviso => { %>
-              <tr>
-                <th scope="row"> <%= aviso.ID_avisos %> </th>
-                <td><%= aviso.titulo %></td>
-                <td><%= moment(aviso.data).format("DD/MM/YYYY") %></td>
-                <td>
-                  <button class="btn btn-secondary">Excluir</button>
-                  <button class="btn btn-info">Alterar</button>
-                </td>
-              </tr>
+            <tr>
+              <th scope="row"> <%= aviso.ID_avisos %> </th>
+              <td><%= aviso.titulo %></td>
+              <td><%= moment(aviso.data).format("DD/MM/YYYY") %></td>
+              <td>
+                <button class="btn btn-secondary" data-toggle="modal" data-target="#excluirModal"  onclick="excluir(event,'<%= aviso.ID_avisos %>')">Excluir</button>
+                <button class="btn btn-info">Alterar</button>
+              </td>
+            </tr>
             <% }) %>
 
           </tbody>
         </table>
-        
+
       </div>
       <!--card-body-->
     </div>
@@ -55,8 +56,61 @@
   </div>
   <!--container-->
 
+  <!-- Modal -->
+  <div class="modal fade" id="excluirModal" tabindex="-1" aria-labelledby="excluirModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="excluirModalLabel">Deseja realmente excluir este aviso?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Título</th>
+                <th scope="col">Data</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="modal-tr-body">
+                <td>ID</td>
+                <td>Título</td>
+                <td>Data</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+          <form id="form-excluir" method="GET">
+            <button type="submit" class="btn btn-primary">Sim</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- incluir os scripts do bootstrap -->
   <%- include ('./partials/scripts_import') %>
+
+  <!-- Nosso Script-->
+  <script>
+    function excluir(event, id){
+      var tdBotoes = event.target.parentElement;
+      var trAviso = tdBotoes.parentElement;
+      var trModal = document.getElementById("modal-tr-body");
+
+      var formExcluir = document.getElementById("form-excluir");
+      formExcluir.action = "avisos/excluir/" + id;
+      
+      trModal.innerHTML = trAviso.innerHTML;
+      trModal.removeChild(trModal.lastElementChild);
+    }
+  </script>
 </body>
 
 </html>
