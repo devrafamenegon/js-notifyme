@@ -7,7 +7,7 @@
 
   <div class="container">
     <br><br>
-    <a href="#"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a>
+    <button onclick="goBack()" class="btn btn-info"><i class="fas fa-long-arrow-alt-left"></i></button>
     <br><br>
     <div class="card shadow">
       <div class="card-header bg-dark text-white pl-5 p-4">
@@ -40,7 +40,10 @@
               <td><%= aviso.titulo %></td>
               <td><%= moment(aviso.data).format("DD/MM/YYYY") %></td>
               <td>
-                <button class="btn btn-secondary" data-toggle="modal" data-target="#excluirModal"  onclick="excluir(event,'<%= aviso.ID_avisos %>')">Excluir</button>
+                <button class="btn btn-secondary" 
+                        data-toggle="modal" 
+                        data-target="#excluirModal" 
+                        onclick="excluir(event,'<%= aviso.ID_avisos %>')">Excluir</button>
                 <a href="avisos/editar/<%= aviso.ID_avisos %>" class="btn btn-info">Alterar</a>
               </td>
             </tr>
@@ -83,6 +86,7 @@
               </tr>
             </tbody>
           </table>
+          
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
@@ -109,6 +113,10 @@
       
       trModal.innerHTML = trAviso.innerHTML;
       trModal.removeChild(trModal.lastElementChild);
+    }
+
+    function goBack() {
+      window.history.back();
     }
   </script>
 </body>
