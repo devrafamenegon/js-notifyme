@@ -2,6 +2,8 @@ const router = require('express').Router()
 
 const Avisos = require('./Avisos')
 
+//GET ------------------------------------------------
+
 router.get("/", async (req,res)=>{
   const avisos = await Avisos.selecionarTodos();
   res.render('principal', {avisos})
@@ -27,6 +29,8 @@ router.get("/avisos/excluir/:id", async (req, res) => {
   await Avisos.excluir(id);
   res.redirect('/avisos');
 })
+
+//POST ------------------------------------------------
 
 router.post("/avisos/novo", async (req, res)=>{
   const titulo = req.body.titulo

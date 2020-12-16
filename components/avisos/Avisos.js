@@ -9,7 +9,7 @@ const db = require('../../knexfile');
  */
 function salvar(aviso){
   //insert
-  //db.insert('<nome da tabela'>).into(<obj com dados>)
+  //db.insert('<obj com dados'>).into(<nome da tabela>)
   return db.insert(aviso).into('avisos').then(_ => { return { tipo: "sucesso", corpo: "Dados inseridos com sucesso" }}).catch(erro => {return { tipo: "erro", corpo: "Erro" + erro} 
   })
 }//fim do salvar
