@@ -1,0 +1,77 @@
+<!-- incluir o head -->
+<%- include('./partials/head') %>
+  
+  <!--Nosso CSS-->
+  <link rel="stylesheet" href="/css/registrar.css">
+</head>
+
+  <body>
+    <img src="/images/background-cutted.png" id="image-background">
+    <div class="container">
+      <div class="card shadow">
+        <div class="card-title text-dark">
+          <h2>REGISTRAR</h2>
+        </div> <!--card-header-->
+        
+        <% if (typeof msg !== 'undefined') { %>
+          <% if (msg.tipo ==='sucesso') { %>
+      
+          <br>
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong><i class="far fa-calendar-check"></i> Sucesso! </strong><%=msg.corpo%>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+      
+          <!--Fim do if sucesso-->
+          <% } %> 
+      
+          <% if (msg.tipo==='erro'){ %>
+            <br>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong><i class="fas fa-exclamation-circle"></i> Erro! </strong><%=msg.corpo%>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+      
+          <!--Fim do if erro-->
+          <% } %>
+      
+          <!--Fim do typeof-->
+          <% } %>
+
+        <div class="card-body">
+          <form action="/registrar" method="POST">
+            <div class="form-group">
+              <label for="nome">Nome completo</label>
+              <input name="nome" type="text" class="form-control" id="nome" aria-describedby="nameHelp" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+            </div>
+            <div class="form-group">
+              <label for="user">Usuário</label>
+              <input name="user" type="text" class="form-control" id="user" aria-describedby="userHelp" required>
+            </div>
+            <div class="form-group">
+              <label for="senha">Senha</label>
+              <input name="senha" type="password" class="form-control" id="senha" required>
+            </div>
+            <div class="d-flex align-items-center justify-content-between mt-4">
+              <button type="submit" class="btn btn-dark">Registrar-se</button>
+              <a href="/logar" class="btn btn-info">Voltar</a>
+            </div>
+          </form>
+        </div> <!-- /card body -->
+        
+      </div> <!-- /card -->
+    </div> <!-- /container -->
+  
+    <!-- incluir os scripts do bootstrap -->
+    <%- include ('./partials/scripts_import') %>
+
+  </body>
+</html>

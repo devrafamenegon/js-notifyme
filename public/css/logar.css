@@ -1,0 +1,91 @@
+/* LOGAR */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: normal 1em "Open Sans", sans-serif;
+}
+
+#image-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.container {
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+}
+
+.card {
+  width: 34.438rem;
+  height: 39rem;
+  margin: 14.188rem 0 0 14.938rem;
+  padding: 4rem 5.563rem;
+  border-radius: 1rem;
+}
+
+.card .card-title h2 {
+  font: bold 2em "Open Sans", sans-serif;
+}
+
+.card .card-body {
+  padding: 2.038rem 0 0 0;
+}
+
+.card-body #campo-usuario {
+  margin-bottom: 1.5rem;
+}
+
+.card-body #link-esqueceu {
+  margin: 0.5rem 0 0 0.3rem;
+}
+
+.card-body .card-botoes {
+  margin: 2.938rem auto 0 auto;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 50% 50%;
+  grid-gap: 1rem;
+  justify-items: center;
+}
+
+.card-botoes .btn-dark {
+  width: 15.125rem;
+  height: 3.688rem;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  font: bold 1.5em "Open Sans", sans-serif;
+}
+
+.card-botoes #link-registre {
+  font: bold 1em "Open Sans", sans-serif;
+}
+
+
+/* alerta de erro */
+
+.alert {
+  padding: 20px;
+  background-color: #dd726b;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 0.938rem;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: rgb(54, 3, 3);
+}

@@ -1,0 +1,56 @@
+<!-- incluir o head -->
+<%- include('./partials/head') %>
+
+  <!--Nosso CSS-->
+  <link rel="stylesheet" href="/css/perfil.css">
+  </head>
+
+  <body>
+    <!-- Menu -->
+    <%- include('./partials/navbar') %>
+
+    <div class="container">
+
+      <div class="card shadow mt-5">
+
+        <div class="card-header text-center">
+          <img src="/images/profile-test.jpg" class="rounded-circle" width="150px" alt="Profile" >
+          <div class="nome-usuario mt-3">
+            <div class="font-weight-bold">Administrador</div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="form-group">
+            <label for="nome">Nome completo</label>
+            <input name="nome" type="text" class="form-control" id="nome" aria-describedby="nameHelp" required value="Rafael Henrique Menegon">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" required value="admin@admin.com">
+          </div>
+          <div class="form-group">
+            <label for="user">Usuário</label>
+            <input name="user" type="text" class="form-control" id="user" aria-describedby="userHelp" required value="Administrador">
+          </div>
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <input name="senha" type="password" class="form-control" id="senha" required value="">
+          </div>
+          
+        </div>
+        <div class="d-flex align-items-center justify-content-between card-footer text-center">
+          <button class="btn btn-dark mt-3">Salvar Alterações</button>
+          <a href="/logar" class="btn btn-danger mt-3">Logout</a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- incluir os scripts do bootstrap -->
+    <%- include ('./partials/scripts_import') %>
+
+  </body>
+</html>

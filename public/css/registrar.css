@@ -1,0 +1,40 @@
+/* REGISTRAR */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: normal 1em "Open Sans", sans-serif;
+}
+
+#image-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.container {
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+}
+
+.card {
+  width: 34.438rem;
+  height: 39rem;
+  margin: 14.188rem 0 0 14.938rem;
+  padding: 4rem 5.563rem;
+  border-radius: 1rem;
+}
+
+.card .card-title h2 {
+  font: bold 2em "Open Sans", sans-serif;
+}
+
+.card .card-body {
+  padding: 2.038rem 0 0 0;
+}
+
+.card-body #campo-usuario {
+  margin-bottom: 1.5rem;
+}
