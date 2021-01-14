@@ -13,10 +13,18 @@
     <br>
     <% avisos.forEach(aviso => { %>
       <div class="card shadow mt-5">
-        <div class="card-header bg-dark text-white pl-5 p-4 d-flex align-items-center justify-content-between">
-          <h2><i class="far fa-calendar"></i> <%= aviso.titulo %></h2>
-          <span><%= moment(aviso.data).format("DD/MM/YYYY") %></span>
-        </div>
+        <% if (moment(aviso.data).isAfter(moment())) { %>
+          <div class="card-header bg-info text-white pl-5 p-4 d-flex align-items-center justify-content-between">
+            <h2><i class="far fa-calendar"></i> <%= aviso.titulo %></h2>
+            <span><%= moment(aviso.data).format("DD/MM/YYYY") %></span>
+          </div> 
+        <% } else { %>
+          <div class="card-header bg-dark text-white pl-5 p-4 d-flex align-items-center justify-content-between">
+            <h2><i class="far fa-calendar-check"></i> <%= aviso.titulo %></h2>
+            <span><%= moment(aviso.data).format("DD/MM/YYYY") %></span>
+          </div>
+        <% } %>
+        
         <!--card-header-->
         <div class="card-body p-5">
           <div class="d-flex align-items-center">
@@ -44,6 +52,9 @@
 
   <!-- incluir os scripts do bootstrap -->
   <%- include ('./partials/scripts_import') %>
+
+  <script src='http://momentjs.com/downloads/moment.min.js'></script>
+
 </body>
 
 </html>

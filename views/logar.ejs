@@ -3,51 +3,107 @@
 
   <!--Nosso CSS-->
   <link rel="stylesheet" href="/css/logar.css">
-</head>
+  
+  </head>
 
-<body>
-  <img src="/images/background-cutted.png" id="image-background">
-  <div class="container">
-    <div class="card shadow">
-      <div class="card-title text-dark">
-        <h2>LOGIN</h2>
-      </div> <!--card-header-->
+  <body>
+    <!-- container -->
+    <div class="container">
 
-      <div class="card-body">
-        <form action="/logar" method="post">
-          <div id="campo-usuario">
-            <label for="user">Usuário</label>
-            <input name="user" type="text" class="form-control" id="user" required>
-          </div>
-          <div id="campo-senha">
-            <label for="senha">Senha</label>
-            <input name="senha" type="password" class="form-control" id="Senha" required>
-          </div>
-          <div id="link-esqueceu">
-            <a href="#" class="text-dark">Esqueceu sua senha?</a>
-          </div>
-          
-          <% if (message) { %>
+      <!--background-->
+      <img src="/images/background.svg" id="image-background">
+      <img src="/images/logo.svg" id="logo-background">
 
-            <div class="alert mt-3">
-              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-              <strong><%= message %></strong>
+      <!--card-->
+      <div class="card shadow">
+
+        <!--card-title-->
+        <div class="card-title text-dark">
+          <h2>LOGIN</h2>
+        </div>
+        <!--/card-title-->
+
+        <!--card-body-->
+        <div class="card-body">
+
+          <!--form-logar-->
+          <form action="/logar" method="post" autocomplete="off">
+
+            <!--campo-usuário-->
+            <div class="form-group" id="campo-usuario">
+              <label for="user">Usuário</label>
+              <input name="user" type="text" class="form-control" id="user" required>
             </div>
-          <% } %>
+            <!--/campo-usuário-->
 
-          <div class="card-botoes">
-            <button type="submit" class="btn btn-dark">Logar-se</button>
-            <p class="">Não tem uma conta? <a href="/registrar" class="text-dark text-decoration-none" id="link-registre">Registre-se!</a></p>
-          </div>
-          
-        </form>
-      </div> <!-- /card body -->
-    </div> <!-- /card -->
-    
-  </div> <!-- /container -->
+            <!--campo-senha-->
+            <div class="form-group" id="campo-senha">
+              <label for="senha">Senha</label>
+              <div class="password-group">
+                <input name="senha" type="password" class="form-control" id="senha" required>
+                <div onclick='ShowPassword()' id="show-password"></div>
+              </div>
+            </div>
+            <!--/campo-senha-->
 
-  <!-- incluir os scripts do bootstrap -->
-  <%- include ('./partials/scripts_import') %>
+            <!--esqueceu-senha-->
+            <div id="link-esqueceu">
+              <a href="#" class="text-dark">Esqueceu sua senha?</a>
+            </div>
+            <!--/esqueceu-senha-->
 
-</body>
-</html>
+            <!--mensagem-erro-->
+            <% if (message) { %>
+              <div class="alert mt-3">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <strong>
+                  <%= message %>
+                </strong>
+              </div>
+              <% } %>
+                <!--/mensagem-erro-->
+
+                <!--card-botoes-->
+                <div class="card-botoes">
+                  <button type="submit" class="btn btn-dark">Logar-se</button>
+                  <div class="">
+                    <span class="">Não tem uma conta? </span>
+                    <a href="/registrar" class="text-dark text-decoration-none" id="link-registre">Registre-se!</a>
+                  </div>
+                  
+                </div>
+                <!--/card-botoes-->
+
+          </form>
+          <!--/form-logar-->
+
+        </div>
+        <!-- /card body -->
+      </div>
+      <!-- /card -->
+    </div>
+    <!-- /container -->
+
+    <!-- incluir os scripts do bootstrap -->
+    <%- include ('./partials/scripts_import') %>
+
+    <script type="text/javascript">
+      
+      function ShowPassword() { 
+            var inputSenha = document.getElementById("senha");
+            var toggleSenha = document.getElementById("show-password"); 
+            if (inputSenha.type === "password") { 
+              inputSenha.type = "text";
+              toggleSenha.classList.add('hide');
+            } 
+            else { 
+              inputSenha.type = "password";
+              toggleSenha.classList.remove('hide');
+            } 
+      }
+
+    </script>
+
+  </body>
+
+  </html>

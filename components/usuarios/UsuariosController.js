@@ -38,7 +38,6 @@ router.post("/registrar", async (req, res)=>{
 router.post("/logar", passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/logar?fail=true',
-  
 }))
 
 

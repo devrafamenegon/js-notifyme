@@ -1,40 +1,186 @@
-/* REGISTRAR */
+/* LOGAR */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font: normal 1em "Open Sans", sans-serif;
+  font: normal 16px "Open Sans", sans-serif;
 }
 
-#image-background {
-  position: fixed;
-  top: 0;
-  right: 0;
+::-webkit-scrollbar{
+  width: 15px;
+  background-color: #343A40;
+}
+
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(#343a40, #fff);
+  border-radius: 0 0 6px 6px;
+}
+
+
+body {
+  overflow-x: hidden;
 }
 
 .container {
-  padding: 0;
+  width: 100%;
+
   margin: 0;
-  min-width: 100%;
+  padding: 0;
+}
+
+#image-background {
+  width: 44vw;
+  min-width: 500px;
+
+  position:absolute;
+  top: -1px;
+  right: -1px;
+
+  animation: fadeIn 1.5s;
+}
+
+#logo-background {
+  width: 20vw;
+  min-width: 150px;
+
+  position:absolute;
+  top: 200px;
+  right: 8vw;
+
+  animation: fadePlus 1s;
 }
 
 .card {
-  width: 34.438rem;
-  height: 39rem;
-  margin: 14.188rem 0 0 14.938rem;
-  padding: 4rem 5.563rem;
-  border-radius: 1rem;
+  width: 25vw;
+  min-width: 400px;
+  min-height: 500px;
+
+  margin: 230px 0 100px 10vw;
+  padding: 40px;
+  border-radius: 10px;
+  
+  animation: fadePlus 1s;
 }
 
 .card .card-title h2 {
-  font: bold 2em "Open Sans", sans-serif;
+  font: bold 2rem "Open Sans", sans-serif;
 }
 
 .card .card-body {
-  padding: 2.038rem 0 0 0;
+  padding: 10% 0 0 0;
 }
 
-.card-body #campo-usuario {
-  margin-bottom: 1.5rem;
+.card-body .form-group input:focus {
+  border-color: rgba(52, 58, 64, 0.2);
+  box-shadow: 0 1px 5px rgba(52, 58, 64, 0.35);
+  outline: 0 none;
+}
+
+.card-body .form-group:nth-child(1) {
+  animation: move 1s;
+}
+
+.card-body .form-group:nth-child(2) {
+  animation: move 1s 300ms backwards;
+}
+
+.card-body .form-group:nth-child(3) {
+  animation: move 1s 600ms backwards;
+}
+
+.card-body .form-group:nth-child(4) {
+  animation: move 1s 900ms backwards;
+}
+
+.card-body .card-botoes {
+  margin-top: 37px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-body .card-botoes .btn-dark {
+  animation: move 1s 1100ms backwards;
+}
+
+.card-body .card-botoes .btn-info {
+  animation: move 1s 1400ms backwards;
+}
+
+/* alerta de erro */
+
+.alert {
+  padding: 20px;
+
+  background-color: #dd726b;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  float: right;
+
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 20px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: rgb(54, 3, 3);
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadePlus {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes move {
+  from {
+    opacity: 0;
+    transform: translateX(-35%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+
+@media (max-width: 768px) {
+  #logo-background {
+    top: 45px;
+    right: 30vw;
+  }
+
+  .card {
+    margin: 200px auto 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .card {
+    min-width: 300px;
+  }
 }

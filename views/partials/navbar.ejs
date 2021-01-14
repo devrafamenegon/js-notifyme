@@ -1,26 +1,91 @@
-<div class="bg-secondary"></div>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<!--Nosso CSS-->
+<link rel="stylesheet" href="/css/navbar.css">
+
+<!--container-->
+<div class="container-nav">
+
+  <!--navbar-->
+  <nav class="navbar-dark">
+
+    <!--logo-->
+    <div class="logo">
+      <a href='/'>
+        <img src="/images/logo-black.svg">
+      </a>
+    </div>
+    <!--/logo-->
+
+    <ul class="nav-links">
+      <li><a id="nav-inicio" href='/'><i class="fas fa-home"></i> Início</a></li>
+      <li><a id="nav-meus-avisos" href='/avisos'><i class="fas fa-clipboard-list"></i> Meus avisos</a></li>
+      <li><a id="nav-novo-aviso" href='/avisos/novo' id="ativo"><i class="fas fa-plus-circle"></i> Novo Aviso</a></li>
+      <li><a id="nav-perfil" href='/perfil'><i class="fas fa-user-circle"></i> Perfil</a></li>
+    </ul>
+    <!--nav-links-->
+
+    <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <!--burger-->
+
+  </nav>
+  <!--/navbar-->
+
+</div>
+<!--/container-->
+
+<script>
+  const navSlide = () => {
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-links');
+  const navLinks = document.querySelectorAll('.nav-links li');
+
+  
+  burger.addEventListener('click', () => {
+      //toggle nav    
+      nav.classList.toggle('nav-active');
+  
+      //animate links
+      navLinks.forEach((link, navbar) => {
+          if (link.style.animation) {
+              link.style.animation = '';
+          } else {
+              link.style.animation = `navLinkFade 0.5s ease backwards ${navbar / 7 + 0}s`;
+          }
+      });
+      //Burger Animation
+      burger.classList.toggle('toggle');
+  });
+  }
+
+  navSlide();
+</script>
+
+
+
+<!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="/"><img src="/images/logo.png" width="40%"></a>
+        <a class="navbar-brand" href="/"><img src="/images/logo-black.svg" width="30%" min-width="150px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item mr-2">
-          <a class="nav-link active" href="/"><i class="fas fa-home"></i> Início</a>
+          <a id="nav-inicio" class="nav-link active" href="/"><i class="fas fa-home"></i> Início</a>
         </li>
         <li class="nav-item mr-2">
-          <a class="nav-link active" href="/avisos"><i class="fas fa-clipboard-list"></i> Meus avisos</a>
+          <a id="nav-meus-avisos" class="nav-link active" href="/avisos"><i class="fas fa-clipboard-list"></i> Meus avisos</a>
         </li>
         <li class="nav-item mr-2">
-          <a class="nav-link active" href="/avisos/novo"><i class="fas fa-plus-circle"></i> Novo Aviso</a>
+          <a id="nav-novo-aviso" class="nav-link active" href="/avisos/novo"><i class="fas fa-plus-circle"></i> Novo Aviso</a>
         </li>
         <li class="nav-item mr-2">
-          <a class="nav-link active" href="/perfil"><i class="fas fa-user-circle"></i> Perfil</a>
+          <a id="nav-perfil" class="nav-link active" href="/perfil"><i class="fas fa-user-circle"></i> Perfil</a>
         </li>  
       </ul>
     </div>  
     </div>
-  </nav>
-</div>
+  </nav> -->

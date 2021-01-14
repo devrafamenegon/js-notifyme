@@ -4,66 +4,148 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font: normal 1em "Open Sans", sans-serif;
+  font: normal 16px "Open Sans", sans-serif;
 }
 
-#image-background {
-  position: fixed;
-  top: 0;
-  right: 0;
+::-webkit-scrollbar{
+  width: 15px;
+  background-color: #343A40;
+}
+
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(#343a40, #fff);
+  border-radius: 0 0 6px 6px;
+}
+
+
+body {
+  overflow-x: hidden;
 }
 
 .container {
-  padding: 0;
+  width: 100%;
+
   margin: 0;
-  min-width: 100%;
+  padding: 0;
+}
+
+#image-background {
+  width: 44vw;
+  min-width: 500px;
+
+  position:absolute;
+  top: -1px;
+  right: -1px;
+
+  animation: fadeIn 1.5s;
+}
+
+#logo-background {
+  width: 20vw;
+  min-width: 150px;
+
+  position:absolute;
+  top: 200px;
+  right: 8vw;
+
+  animation: fadePlus 1s;
 }
 
 .card {
-  width: 34.438rem;
-  height: 39rem;
-  margin: 14.188rem 0 0 14.938rem;
-  padding: 4rem 5.563rem;
-  border-radius: 1rem;
+  width: 25vw;
+  min-width: 400px;
+  min-height: 500px;
+
+  margin: 230px 0 100px 10vw;
+  padding: 40px;
+  border-radius: 10px;
+  
+  animation: fadePlus 1s;
 }
 
 .card .card-title h2 {
-  font: bold 2em "Open Sans", sans-serif;
+  font: bold 2rem "Open Sans", sans-serif;
 }
 
 .card .card-body {
-  padding: 2.038rem 0 0 0;
+  padding: 10% 0 0 0;
+}
+
+.card-body .form-group {
+  margin: 0;
+}
+
+.card-body .form-group input:focus {
+  border-color: rgba(52, 58, 64, 0.2);
+  box-shadow: 0 1px 5px rgba(52, 58, 64, 0.35);
+  outline: 0 none;
 }
 
 .card-body #campo-usuario {
-  margin-bottom: 1.5rem;
+  margin-bottom: 20px;
+
+  animation: move 1s;
 }
 
+.card-body .password-group {
+  display: flex;
+  align-items: center;
+}
+
+.card-body #campo-senha {
+  animation: move 1s 300ms backwards;
+}
+
+.card-body #show-password {
+  width: 32px;
+  height: 20px;
+  background: url(../images/ShowOff.png) no-repeat;
+  background-size: contain;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.card-body #show-password.hide {
+  width: 32px;
+  height: 29px;
+  background: url(../images/ShowOn.png) no-repeat;
+  background-size: contain;
+}
 .card-body #link-esqueceu {
-  margin: 0.5rem 0 0 0.3rem;
+  margin: 8px 0 0 5px;
+  font-weight: bold;
 }
 
 .card-body .card-botoes {
-  margin: 2.938rem auto 0 auto;
+  margin: 47px auto 0 auto;
+
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 50% 50%;
-  grid-gap: 1rem;
+  grid-gap: 16px;
+
   justify-items: center;
 }
 
-.card-botoes .btn-dark {
-  width: 15.125rem;
-  height: 3.688rem;
+.card-body .card-botoes .btn-dark {
+  width: 70%;
+  min-width: 200px;
+  height: 59px;
+
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 1;
   grid-row-end: 2;
-  font: bold 1.5em "Open Sans", sans-serif;
+
+  font: bold 1.5rem "Open Sans", sans-serif;
 }
 
-.card-botoes #link-registre {
-  font: bold 1em "Open Sans", sans-serif;
+.card-body .card-botoes #link-registre {
+  font: bold 1rem "Open Sans", sans-serif;
+}
+
+.card-body .card-botoes #link-registre:hover {
+  font-size: 17px;
 }
 
 
@@ -71,21 +153,73 @@
 
 .alert {
   padding: 20px;
+
   background-color: #dd726b;
   color: white;
 }
 
 .closebtn {
-  margin-left: 0.938rem;
+  margin-left: 15px;
+  float: right;
+
   color: white;
   font-weight: bold;
-  float: right;
   font-size: 22px;
   line-height: 20px;
+
   cursor: pointer;
   transition: 0.3s;
 }
 
 .closebtn:hover {
   color: rgb(54, 3, 3);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadePlus {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes move {
+  from {
+    opacity: 0;
+    transform: translateX(-35%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+
+@media (max-width: 768px) {
+  #logo-background {
+    top: 45px;
+    right: 30vw;
+  }
+
+  .card {
+    margin: 200px auto 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .card {
+    min-width: 300px;
+  }
 }
