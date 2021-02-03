@@ -1,1 +1,3 @@
-# quadro-de-avisos-pw2
+# Projeto Notify Me!
+
+• Base do projeto apresentada pelo professor Fernando (https://github.com/fernandobrscunha)
