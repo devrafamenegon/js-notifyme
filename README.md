@@ -40,7 +40,7 @@ $ npm start
 
 ## 💻 Project
 
-Basis of the project presented by Professor Fernando Bartholomeu.
+Basis of the project presented by Professor [Fernando Bartholomeu](https://github.com/fernandobrscunha)
 
 ## 📝 License
 
